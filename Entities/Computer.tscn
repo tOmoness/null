@@ -10,6 +10,7 @@ extents = Vector2( 3, 3 )
 extents = Vector2( 3, 3 )
 
 [node name="Computer" type="StaticBody2D"]
+collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
