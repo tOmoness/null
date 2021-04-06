@@ -1,12 +1,18 @@
 extends KinematicBody2D
+class_name Player
 
 const MAX_SPEED = 80
 const ACCELERATION = 2000
+
+const PlayerBullet = preload("res://Player/PlayerBullet.tscn")
 
 var motion = Vector2.ZERO
 
 onready var sprite = $Sprite
 onready var anim = $AnimationPlayer
+
+func _ready():
+	Global.Player = self
 
 func _process(delta):
 	var camera = get_node("Camera2D")
@@ -26,6 +32,9 @@ func _physics_process(delta):
 	
 	motion = move_and_slide(motion)
 	
+	if Input.is_action_just_pressed("fire") and $FireWait.is_stopped():
+		fire_bullet()
+	
 func get_axis_input():
 	var axis = Vector2.ZERO
 	
@@ -43,3 +52,14 @@ func apply_friction(friction):
 func apply_movement(accl):
 	motion += accl
 	motion = motion.clamped(MAX_SPEED)
+
+func fire_bullet():
+	var fire_direction = (get_global_mouse_position() - global_position).normalized()
+	var bullet = PlayerBullet.instance()
+	get_tree().current_scene.add_child(bullet)
+	
+	bullet.global_position = global_position
+	bullet.velocity = fire_direction * 100
+	bullet.rotation = bullet.velocity.angle()
+	
+	$FireWait.start()
