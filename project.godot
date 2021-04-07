@@ -63,9 +63,11 @@ fire={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Enemy"
-2d_physics/layer_3="Item"
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="ProjectileHitbox"
+2d_physics/layer_5="EnemyHurtbox"
 
 [rendering]
 
