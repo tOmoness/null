@@ -33,7 +33,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
-Cursor="*res://Cursor.tscn"
+Cursor="*res://UI/Cursor.tscn"
+SceneChanger="*res://UI/SceneChanger.tscn"
 
 [display]
 
