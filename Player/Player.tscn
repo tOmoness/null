@@ -61,9 +61,6 @@ shape = SubResource( 1 )
 anims/Idle = SubResource( 2 )
 anims/Walk = SubResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2( 0.5, 0.5 )
-
 [node name="FireWait" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true

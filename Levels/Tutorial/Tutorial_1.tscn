@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/walls.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/Tutorial/Tutorial_2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/Theme.tres" type="Theme" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
@@ -215,3 +216,14 @@ position = Vector2( 38, 72 )
 position = Vector2( 132, 72 )
 Locked = false
 target_scene = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 160.0
+margin_bottom = 43.0
+theme = ExtResource( 5 )
+text = "Use W, A, S, D to move"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

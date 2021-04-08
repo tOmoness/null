@@ -14,10 +14,6 @@ onready var anim = $AnimationPlayer
 func _ready():
 	Global.Player = self
 
-func _process(delta):
-	var camera = get_node("Camera2D")
-	camera.position = position
-
 func _physics_process(delta):
 	var axis = get_axis_input()
 	
