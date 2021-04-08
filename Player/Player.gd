@@ -6,6 +6,8 @@ const ACCELERATION = 2000
 
 const PlayerBullet = preload("res://Player/PlayerBullet.tscn")
 
+export(bool) var disable_input = false
+
 var motion = Vector2.ZERO
 
 onready var sprite = $Sprite
@@ -15,7 +17,7 @@ func _ready():
 	Global.Player = self
 
 func _physics_process(delta):
-	var axis = get_axis_input()
+	var axis = get_axis_input() if not disable_input else Vector2.ZERO
 	
 	sprite.flip_h = axis.x < 0
 	
@@ -28,7 +30,7 @@ func _physics_process(delta):
 	
 	motion = move_and_slide(motion)
 	
-	if Input.is_action_just_pressed("fire") and $FireWait.is_stopped():
+	if Input.is_action_just_pressed("fire") and $FireWait.is_stopped() and not disable_input:
 		fire_bullet()
 	
 func get_axis_input():
