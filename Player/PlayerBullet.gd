@@ -2,6 +2,10 @@ extends Node2D
 
 var velocity = Vector2.ZERO
 
+func _ready():
+	$AudioStreamPlayer.pitch_scale = rand_range(0.75, 1)
+	$AudioStreamPlayer.play()
+
 func _process(delta):
 	position += velocity * delta
 

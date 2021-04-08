@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/enemy.png" type="Texture" id=1]
 [ext_resource path="res://Enemy.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/death.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 2.5 )
@@ -29,4 +30,7 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0, 1.5 )
 shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
